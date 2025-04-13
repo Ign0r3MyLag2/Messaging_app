@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Login Page -->
+  <div id="login">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <div id="login-error" style="color: red; display: none;">Invalid login credentials.</div>
+    
+    <!-- Toggle to Register -->
+    <button onclick="toggleRegister()">Go to Register</button>
+  </div>
+  
+  <!-- Register Page -->
+  <div id="register" style="display: none;">
+    <h2>Register</h2>
+    <input type="text" id="new-username" placeholder="Username" required>
+    <input type="password" id="new-password" placeholder="Password" required>
+    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+    <button onclick="register()">Register</button>
+    <div id="register-error" style="color: red; display: none;">Registration failed. Try again.</div>
+    
+    <!-- Toggle to Login -->
+    <button onclick="toggleLogin()">Go to Login</button>
+  </div>
+
+  <!-- Chat Page -->
+  <div id="chat" style="display: none;">
+    <h2>Welcome, <span id="current-username"></span></h2>
+
+    <!-- Split Layout: Left (Users List) and Right (Current Chat) -->
+    <div id="chat-layout">
+      <div id="user-list">
+        <h3>Users</h3>
+        <ul id="users-list">
+          <!-- Dynamically generated list of users -->
+        </ul>
+
+        <div>
+          <label for="new-user">Enter Username to Start Chat:</label>
+          <input type="text" id="new-user" placeholder="Username" />
+          <button onclick="startChat()">Start Chat</button>
+        </div>
+      </div>
+
+      <div id="chat-box">
+        <h3 id="chat-header">Select a user to start chatting</h3>
+        <div id="message-box"></div>
+        <textarea id="msg" placeholder="Type your message..."></textarea>
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <button onclick="logout()">Log Out</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
